@@ -10,7 +10,7 @@ Maze::Maze(int w, int h, bool addWallsByDefault) {
 		rooms.push_back(std::vector<Room>());
 
 		for (int x = 0; x < width; x++) {
-			rooms[y].push_back(Room(addWallsByDefault));
+			rooms[y].push_back(Room({x, y}, addWallsByDefault));
 		}
 	}
 }

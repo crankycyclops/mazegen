@@ -31,6 +31,9 @@ class Generator {
 
 	protected:
 
+		// Maze object that we're going to be operating on
+		std::unique_ptr<Maze> maze;
+
 		/*
 			Specific maze generation algorithm.
 

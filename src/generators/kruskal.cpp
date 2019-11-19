@@ -7,8 +7,8 @@
 
 void Kruskal::doGenerate(std::vector<std::vector<Room>> &rooms) {
 
-	int width = rooms.size();
-	int height = rooms[0].size();
+	const int width = maze->getWidth();
+	const int height = maze->getHeight();
 
 	std::vector<RoomIndexPair> walls;
 	DisjointSet<std::pair<int, int>, hashPair> roomSets;

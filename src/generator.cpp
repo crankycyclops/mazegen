@@ -30,7 +30,7 @@ Room *Generator::getRandomEdgeRoom(std::unique_ptr<Maze> &maze) {
 
 std::unique_ptr<Maze> Generator::generate(int width, int height) {
 
-	std::unique_ptr<Maze> maze = std::make_unique<Maze>(width, height);
+	maze = std::make_unique<Maze>(width, height);
 
 	// Randomly pick a starting room somewhere on the edge of the maze
 	maze->start = getRandomEdgeRoom(maze);
@@ -41,5 +41,5 @@ std::unique_ptr<Maze> Generator::generate(int width, int height) {
 	} while (maze->start == maze->finish);
 
 	doGenerate(maze->rooms);
-	return maze;
+	return std::move(maze);
 }
