@@ -10,7 +10,7 @@ ImageBuilder::ImageBuilder(std::unique_ptr<Maze> &m) {
 	maze = m.get();
 
 	// TODO: make these configurable
-	roomColor = Magick::Color(0, RGBVal(100), RGBVal(255), 0);
+	roomColor = Magick::Color(0, RGBVal(150), RGBVal(255), 0);
 	startRoomColor = Magick::Color(0, RGBVal(255), RGBVal(50), 0);
 	finishRoomColor = Magick::Color(RGBVal(255), RGBVal(50), 0, 0);
 	wallColor = Magick::Color(0, 0, 0, 0);
@@ -32,16 +32,16 @@ void ImageBuilder::draw() {
 			int walls = room.getWalls();
 
 			if (&maze->getStart() == &room) {
-				for (int roomY = 0; roomY < roomHeight + wallThickness; roomY++) {
-					for (int roomX = 0; roomX < roomWidth + wallThickness; roomX++) {
+				for (int roomY = wallThickness; roomY < roomHeight + wallThickness; roomY++) {
+					for (int roomX = wallThickness; roomX < roomWidth + wallThickness; roomX++) {
 						image.pixelColor(roomX + x * (roomWidth + wallThickness), roomY + y * (roomHeight + wallThickness), startRoomColor);
 					}
 				}
 			}
 
 			else if (&maze->getFinish() == &room) {
-				for (int roomY = 0; roomY < roomHeight + wallThickness; roomY++) {
-					for (int roomX = 0; roomX < roomWidth + wallThickness; roomX++) {
+				for (int roomY = wallThickness; roomY < roomHeight + wallThickness; roomY++) {
+					for (int roomX = wallThickness; roomX < roomWidth + wallThickness; roomX++) {
 						image.pixelColor(roomX + x * (roomWidth + wallThickness), roomY + y * (roomHeight + wallThickness), finishRoomColor);
 					}
 				}
