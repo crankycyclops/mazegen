@@ -12,8 +12,8 @@ std::unique_ptr<Generator> Generator::make(std::string type) {
 
 	// Maps type names to their prototypical objects
 	// Note: I can't use std::unique_ptr (yet) if I want to initialize this via
-	// the constructor and curly braces.
-	// See: https://stackoverflow.com/questions/47483791/c-map-brace-initialization-and-unique-ptr
+	// the constructor and curly braces. For an explanation of why, see:
+	// https://stackoverflow.com/questions/47483791/c-map-brace-initialization-and-unique-ptr
 	static std::unordered_map<std::string, std::shared_ptr<Generator>> prototypes({
 		{"dfs", std::make_shared<DFS>()},
 		{"kruskal", std::make_shared<Kruskal>()}

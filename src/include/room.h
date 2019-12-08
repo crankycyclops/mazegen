@@ -30,15 +30,12 @@ class Room {
 			Input:
 				Whether or not to turn all walls on by default
 		*/
-		inline Room(std::pair<int, int> c, bool addWallsByDefault = true) {
-
-			coordinates = c;
+		inline Room(std::pair<int, int> c, bool addWallsByDefault = true):
+		coordinates(c), walls(0) {
 
 			// Turn all walls on by default
 			if (addWallsByDefault) {
 				addWalls(ALL_WALLS);
-			} else {
-				walls = 0;
 			}
 		}
 

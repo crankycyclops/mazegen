@@ -21,12 +21,12 @@ std::vector<std::pair<int, int>> DFS::getUnvisitedNeighbors(std::pair<int, int> 
 
 void DFS::doGenerate(std::vector<std::vector<Room>> &rooms) {
 
-	const int width = maze->getWidth();
-	const int height = maze->getHeight();
-	const int numRooms = width * height;
+	const unsigned width = maze->getWidth();
+	const unsigned height = maze->getHeight();
+	const unsigned numRooms = width * height;
 
-	for (int y = 0; y < height; y++) {
-		for (int x = 0; x < width; x++) {
+	for (unsigned y = 0; y < height; y++) {
+		for (unsigned x = 0; x < width; x++) {
 
 			// Construct a list of neighbors for each room
 			if (neighbors.end() == neighbors.find({x, y})) {

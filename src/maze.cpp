@@ -1,9 +1,6 @@
 #include "include/maze.h"
 
-Maze::Maze(int w, int h, bool addWallsByDefault) {
-
-	width = w;
-	height = h;
+Maze::Maze(int w, int h, bool addWallsByDefault): width(w), height(h) {
 
 	for (int y = 0; y < height; y++) {
 
