@@ -19,6 +19,7 @@ int main(int argc, char *argv[]) {
 
 	int width;
 	int height;
+
 	std::string algorithm;
 	std::string output;
 
@@ -47,11 +48,9 @@ int main(int argc, char *argv[]) {
 
 	ImageBuilder::initialize(argv);
 
-	std::unique_ptr<Maze> maze;
-
 	try {
 
-		maze = Generator::make(algorithm)->generate(width, height);
+		std::unique_ptr<Maze> maze = Generator::make(algorithm)->generate(width, height);
 
 		ImageBuilder img(maze);
 		img.draw();
