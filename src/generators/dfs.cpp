@@ -1,6 +1,11 @@
 #include <algorithm>
 #include "../include/generators/dfs.h"
 
+std::unique_ptr<Generator> DFS::instantiate() const {
+
+	return std::make_unique<DFS>();
+}
+
 std::vector<std::pair<int, int>> DFS::getUnvisitedNeighbors(std::pair<int, int> room) {
 
 	std::vector<std::pair<int, int>> unvisitedNeighbors;

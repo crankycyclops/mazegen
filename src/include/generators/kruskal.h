@@ -17,6 +17,19 @@ class Kruskal: public Generator {
 				(none)
 		*/
 		virtual void doGenerate(std::vector<std::vector<Room>> &rooms);
+
+	public:
+
+		/*
+			Creates and returns a new instance of Kruskal.
+
+			Input:
+				(none)
+
+			Ouput:
+				Pointer to Generator instance (std::unique_ptr<Generator>)
+		*/
+		virtual std::unique_ptr<Generator> instantiate() const;
 };
 
 #endif

@@ -1,4 +1,4 @@
 This is primarily a programming exercise for me, but if you find some value in using it, have at it!
 
-Requires the ImageMagick++ library. To install on Ubuntu, use this command:
-apt-get install libmagick++-dev
+Requires the GraphicsMagick++ library. To install on Ubuntu, use this command:
+apt-get install graphicsmagick-libmagick-dev-compat

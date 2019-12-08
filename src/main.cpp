@@ -49,26 +49,19 @@ int main(int argc, char *argv[]) {
 
 	std::unique_ptr<Maze> maze;
 
-	if (0 == algorithm.compare("kruskal")) {
-		Kruskal generator;
-		maze = generator.generate(width, height);
-	}
-
-	else if (0 == algorithm.compare("dfs")) {
-		DFS generator;
-		maze = generator.generate(width, height);
-	}
-
-	else {
-		std::cerr << "\nError: Undefined algorithm." << std::endl;
-		printHelp();
-		return EXIT_FAILURE;
-	}
-
 	try {
+
+		maze = Generator::make(algorithm)->generate(width, height);
+
 		ImageBuilder img(maze);
 		img.draw();
 		img.save(output);
+	}
+
+	catch (const std::invalid_argument &e) {
+		std::cerr << "\nError: " << e.what() << std::endl;
+		printHelp();
+		return EXIT_FAILURE;
 	}
 
 	catch (const Magick::ErrorFileOpen &e) {

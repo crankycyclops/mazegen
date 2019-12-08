@@ -48,6 +48,33 @@ class Generator {
 	public:
 
 		/*
+			Factory method that takes as input the string name of a generator
+			type and returns an instance of the appropriate class.
+
+			Throws an exception if the algorithm name doesn't map to a valid
+			type.
+
+			Input:
+				Generator Type (string)
+
+			Ouput:
+				Pointer to Generator instance (std::unique_ptr<Generator>)
+		*/
+		static std::unique_ptr<Generator> make(std::string type);
+
+		/*
+			Creates and returns a new instance of a particular type of
+			Generator.
+
+			Input:
+				(none)
+
+			Ouput:
+				Pointer to Generator instance (std::unique_ptr<Generator>)
+		*/
+		virtual std::unique_ptr<Generator> instantiate() const = 0;
+
+		/*
 			Generates a maze of the specified width and height.
 
 			Input:

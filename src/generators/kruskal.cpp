@@ -5,6 +5,11 @@
 #include "../include/disjointset.h"
 #include "../include/generators/kruskal.h"
 
+std::unique_ptr<Generator> Kruskal::instantiate() const {
+
+	return std::make_unique<Kruskal>();
+}
+
 void Kruskal::doGenerate(std::vector<std::vector<Room>> &rooms) {
 
 	const int width = maze->getWidth();
