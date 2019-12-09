@@ -48,6 +48,19 @@ class Generator {
 	public:
 
 		/*
+			Apparently, when you use polymorphism, you need to make your
+			destructors virtual. Otherwise, if delete is called on an object
+			pointed to by a pointer of the base class's type and the derived
+			class has a destructor, the derived class's destructor won't be
+			called. See:
+			https://stackoverflow.com/questions/47702776/how-to-properly-delete-pointers-when-using-abstract-classes
+
+			Interestingly, I got a warning about this from Clang -Wall, but
+			not from GCC -Wall.
+		*/
+		virtual ~Generator() = 0;
+
+		/*
 			Factory method that takes as input the string name of a generator
 			type and returns an instance of the appropriate class.
 

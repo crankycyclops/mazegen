@@ -8,6 +8,9 @@
 #include "include/generators/kruskal.h"
 #include "include/generators/dfs.h"
 
+// See comment above destructor definition in include/generator.h
+Generator::~Generator() {}
+
 std::unique_ptr<Generator> Generator::make(std::string type) {
 
 	// Maps type names to their prototypical objects

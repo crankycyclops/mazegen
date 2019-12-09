@@ -2,3 +2,9 @@ This is primarily a programming exercise for me, but if you find some value in u
 
 Requires the GraphicsMagick++ library. To install on Ubuntu, use this command:
 apt-get install graphicsmagick-libmagick-dev-compat
+
+Build has been tested with both Clang 8 and G++ 7. By default, we build using
+G++, but you can change the compiler used by setting the CCX environment
+variable.
+
+Example (builds with Clang instead of the default G++): CCX="clang" make
