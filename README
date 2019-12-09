@@ -4,7 +4,7 @@ Requires the GraphicsMagick++ library. To install on Ubuntu, use this command:
 apt-get install graphicsmagick-libmagick-dev-compat
 
 Build has been tested with both Clang 8 and G++ 7. By default, we build using
-G++, but you can change the compiler used by setting the CCX environment
+G++, but you can change the compiler used by setting the CXX environment
 variable.
 
-Example (builds with Clang instead of the default G++): CCX="clang" make
+Example (builds with Clang instead of the default G++): CXX="clang" make
